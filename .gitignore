@@ -171,4 +171,5 @@ dataset/solar/
 dataset/traffic/
 dataset/weather/
 checkpoints/
+logs/
 
