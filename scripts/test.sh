@@ -6,9 +6,10 @@ llama_layers=32 #full
 #llama_layers=8
 #llama_layers=6
 
-master_port=00097
+#master_port=00097
+master_port=23333
 num_process=8
-batch_size=24
+batch_size=8
 d_model=32
 d_ff=128
 
