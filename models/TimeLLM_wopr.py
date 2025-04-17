@@ -180,7 +180,7 @@ class Model(nn.Module):
         #
         # self.reprogramming_layer = ReprogrammingLayer(configs.d_model, configs.n_heads, self.d_ff, self.d_llm)
 
-        self.no_reprogramming_layer = nn.Linear(configs.d_model, configs.d_llm)
+        self.no_reprogramming_layer = nn.Linear(configs.d_model, self.d_llm)
 
         self.patch_nums = int((configs.seq_len - self.patch_len) / self.stride + 2)
         self.head_nf = self.d_ff * self.patch_nums
