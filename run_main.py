@@ -6,7 +6,7 @@ from torch import nn, optim
 from torch.optim import lr_scheduler
 from tqdm import tqdm
 
-from models import Autoformer, DLinear, TimeLLM
+from models import Autoformer, DLinear, TimeLLM, TimeLLM_wopr
 
 from data_provider.data_factory import data_provider
 import time
@@ -131,6 +131,8 @@ for ii in range(args.itr):
         model = Autoformer.Model(args).float()
     elif args.model == 'DLinear':
         model = DLinear.Model(args).float()
+    elif args.model == 'TimeLLM_wopr':
+        model = TimeLLM_wopr.Model(args).float()
     else:
         model = TimeLLM.Model(args).float()
 
