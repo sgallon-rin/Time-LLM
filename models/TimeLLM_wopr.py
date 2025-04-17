@@ -241,10 +241,9 @@ class Model(nn.Module):
         x_enc = x_enc.permute(0, 2, 1).contiguous()
         enc_out, n_vars = self.patch_embedding(x_enc.to(torch.bfloat16))
         #enc_out = self.reprogramming_layer(enc_out, source_embeddings, source_embeddings)
-        print(f"enc_out shape before reprogram: {enc_out.shape}")
+        print(f"###### enc_out shape before reprogram: {enc_out.shape}")
         enc_out = self.no_reprogramming_layer(enc_out)
-        print(f"enc_out shape after reprogram: {enc_out.shape}")
-
+        print(f"###### enc_out shape after reprogram: {enc_out.shape}")
         llama_enc_out = torch.cat([prompt_embeddings, enc_out], dim=1)
         dec_out = self.llm_model(inputs_embeds=llama_enc_out).last_hidden_state
         dec_out = dec_out[:, :, :self.d_ff]
